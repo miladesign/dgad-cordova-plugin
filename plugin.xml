@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="dgad-cordova-plugin"
+    version="1.0">
+	
+    <name>Cordova Dgad Plugin</name>
+    <description>Show Dgad Ads</description>
+    <author>Milad Mohammadi</author>	
+    <license>miladesign.ir</license>
+    <keywords>cordova,plugin,ad,dgad,monetisation,video</keywords>
+    <repo>https://github.com/miladesign/dgad-cordova-plugin</repo>
+    <issue>https://github.com/miladesign/dgad-cordova-plugin/issues</issue>	
+	<engines>
+	    <engine name="cordova" version=">=3.0.0" />
+	</engines>
+ 	
+    <js-module src="www/dgad.js">
+        <clobbers target="window.dgad" />
+    </js-module>    
+    
+	<!-- android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="DgadPlugin">
+				<param name="android-package" value="ir.dgad.miladesign.DgadPlugin"/>
+			</feature>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="ir.dgad.miladesign.DgadVideo"></activity>
+			<activity android:name="ir.dgad.VideoActivity"></activity>
+		</config-file>
+
+		<source-file src="src/android/DgadPlugin.java" target-dir="src/ir/dgad/miladesign"/>
+		<source-file src="src/android/dgadlibrary.jar" target-dir="libs" />
+		<source-file src="src/android/MdDgad.jar" target-dir="libs" />
+	</platform>
+	
+</plugin>
