@@ -105,6 +105,10 @@ public class DgadPlugin  extends CordovaPlugin {
 			setOnAudioResultListener(action, args, CallbackContext);
 			return true;
 		}
+		if (action.equals("isReadyVideoToShow")) {
+			isReadyVideoToShow(action, args, CallbackContext);
+			return true;
+		}
 		return false;
 	}
 	
@@ -543,5 +547,28 @@ public class DgadPlugin  extends CordovaPlugin {
 				}
 			}
 	    });
+	}
+	private void isReadyVideoToShow(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+		callbackContextKeepCallback = callbackContext;
+		cordova.getActivity().runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				_isReadyVideoToShow();
+			}
+		});
+	}
+
+	private void _isReadyVideoToShow() {
+	    mActivity = cordova.getActivity();
+	    Boolean result = Dgad.isReadyVideoToShow(mActivity);
+		if (result==true) {
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "ReadyVideoToShow");
+			pr.setKeepCallback(true);
+			DgadPlugin.callbackContextKeepCallback.sendPluginResult(pr);
+		} else {
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "NotReadyVideoToShow");
+			pr.setKeepCallback(true);
+			DgadPlugin.callbackContextKeepCallback.sendPluginResult(pr);
+		}
 	}
 }

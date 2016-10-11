@@ -3,20 +3,20 @@ Dgad ad Cordova plugin
 Dgad ad plugin for Cordova and Phonegap.<br/>
 
 
-- project home: [https://github.com/miladesign/dgad-cordova-plugin](https://github.com/miladesign/dgad-cordova-plugin)<br/>
+- project home: [https://github.com/miladesign/tapsell-video-cordova-plugin](https://github.com/miladesign/tapsell-video-cordova-plugin)<br/>
 - Dgad android SDK<br/>
 - Cordova version >3.0<br/>
 
-### 1.install dgad cordova plugin
+### 1.install tapsell cordova plugin
 
 download the plugin ,then install with local location
 
-    cordova plugin add c:\dgad_video_cordova_plugin 
+    cordova plugin add c:\tapsell_video_cordova_plugin 
 
-### 2.init dgad cordova plugin
+### 2.init tapsell cordova plugin
 init plugin after deviceready event <br />
 
-    dgad.setUp('dgad Key');
+    tapsell.setUp('Tapsell Key');
     
 ### 3.show video ad
 after init ,show video ad and get results.
@@ -25,7 +25,7 @@ after init ,show video ad and get results.
     this.video_info = {};
 	var self = this;
 	function ShowVideo(minAward,videoType) {
-		dgad.showVideo(minAward,videoType,function (result){
+		tapsell.showVideo(minAward,videoType,function (result){
 		self.video_info = { award: result["award"] };
 		if (result["Complete"]==true)
 		alert(GetVideoAward());
@@ -46,7 +46,7 @@ you can check video availablity before showing video ad.
 
 ```
 	function CheckCTA(minAward,videoType) {
-		dgad.checkCTA(minAward,videoType,function (result) {
+		tapsell.checkCTA(minAward,videoType,function (result) {
 			if (result["available"]==true)
 				alert('onAvailable');
 			if (result["available"]==false)
@@ -56,7 +56,7 @@ you can check video availablity before showing video ad.
 ```
 
 ### Examples
-<a href="https://github.com/miladesign/dgad-cordova-plugin/blob/master/example/index.html">Click to see!</a><br>
+<a href="https://github.com/miladesign/tapsell-video-cordova-plugin/blob/master/example/index.html">Click to see!</a><br>
 
 ### Useful links
 Cordova Plugins<br>

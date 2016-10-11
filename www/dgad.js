@@ -284,6 +284,29 @@ module.exports = {
             []
         );
     },
+	IsReadyVideoToShow: function () {
+        var self = this;
+        cordova.exec(
+             function (result) {
+                if (typeof result == "string") {
+                    if (result == "ReadyVideoToShow") {
+                        if (self.ReadyVideoToShow) {
+                            self.ReadyVideoToShow();
+                        }
+                    }
+                    if (result == "NotReadyVideoToShow") {
+                        if (self.NotReadyVideoToShow) {
+                            self.NotReadyVideoToShow();
+                        }
+                    }
+                }
+            },
+            null,
+            'DgadPlugin',
+            'isReadyVideoToShow',
+            []
+        );
+    },
     onAudioDownload: null,
     onAudioNotDownload: null,
     onAudioAvailable: null,
@@ -301,5 +324,7 @@ module.exports = {
     onVideoCanceled: null,
     onVideoFailed: null,
     onAudioOK: null,
-    onAudioFailed: null
+    onAudioFailed: null,
+    ReadyVideoToShow: null,
+    NotReadyVideoToShow: null
 };

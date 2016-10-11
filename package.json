@@ -1,22 +1,22 @@
 {
-  "name": "tapsell-video-cordova-plugin",
+  "name": "dgad-cordova-plugin",
   "version": "1.0",
-  "description": "Show Tapsell Video Ads",
+  "description": "Use dgad in cordova",
   "cordova": {
-    "id": "tapsell-video-cordova-plugin",
+    "id": "dgad-cordova-plugin",
     "platforms": [
       "android"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miladesign/tapsell-video-cordova-plugin.git"
+    "url": "git+https://github.com/miladesign/dgad-cordova-plugin.git"
   },
   "keywords": [
     "cordova",
     "plugin",
     "ad",
-    "tapsell",
+    "dgad",
     "monetisation",
     "ecosystem:cordova",
     "cordova-android"
@@ -33,7 +33,7 @@
   "author": "Milad Mohammadi",
   "license": "MilaDesign",
   "bugs": {
-    "url": "https://github.com/miladesign/tapsell-video-cordova-plugin/issues"
+    "url": "https://github.com/miladesign/dgad-cordova-plugin/issues"
   },
-  "homepage": "https://github.com/miladesign/tapsell-video-cordova-plugin#readme"
+  "homepage": "https://github.com/miladesign/dgad-cordova-plugin#readme"
 }
